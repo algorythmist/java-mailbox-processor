@@ -1,0 +1,4 @@
+- Handle attachments
+- Better multipart parsing
+- Handle more mailboxes in addition to gmail and yahoo
+- unit tests

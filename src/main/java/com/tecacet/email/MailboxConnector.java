@@ -15,4 +15,8 @@ public interface MailboxConnector extends AutoCloseable {
      * @return
      */
     Stream<Message> getMessages(String mailbox);
+
+    default Stream<EmailMessage> getParsedMessages(String mailbox) {
+        return getMessages(mailbox).map(new EmailMessageParser());
+    }
 }

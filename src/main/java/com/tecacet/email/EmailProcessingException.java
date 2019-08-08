@@ -4,7 +4,7 @@ import javax.mail.MessagingException;
 
 public class EmailProcessingException extends RuntimeException {
 
-    public EmailProcessingException(MessagingException exception) {
+    public EmailProcessingException(Exception exception) {
         super(exception);
     }
 }

@@ -2,8 +2,6 @@ package com.tecacet.email;
 
 import org.junit.Test;
 
-import javax.mail.MessagingException;
-
 public class MailboxConnectorTest {
 
     @Test
@@ -13,13 +11,7 @@ public class MailboxConnectorTest {
 
         try (MailboxConnector mailboxConnector =
                      new GmailMailboxConnector(username, password)) {
-            mailboxConnector.getMessages("INBOX").forEach(message -> {
-                try {
-                    System.out.println(message.getSubject());
-                } catch (MessagingException e) {
-                    e.printStackTrace();
-                }
-            });
+            mailboxConnector.getParsedMessages("INBOX").forEach(message -> System.out.println(message.getSubject()));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -32,13 +24,7 @@ public class MailboxConnectorTest {
 
         try (MailboxConnector mailboxConnector =
                      new YahooMailboxConnector(username, password)) {
-            mailboxConnector.getMessages("INBOX").forEach(message -> {
-                try {
-                    System.out.println(message.getSubject());
-                } catch (MessagingException e) {
-                    e.printStackTrace();
-                }
-            });
+            mailboxConnector.getParsedMessages("INBOX").forEach(message -> System.out.println(message.getSubject()));
         } catch (Exception e) {
             e.printStackTrace();
         }

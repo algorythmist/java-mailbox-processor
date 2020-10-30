@@ -1,8 +1,12 @@
 package com.tecacet.email;
 
+import static org.junit.Assert.assertFalse;
+
 import org.junit.Test;
 
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class MailboxConnectorTest {
 
@@ -14,7 +18,8 @@ public class MailboxConnectorTest {
 
         MailboxConnector mailboxConnector =
                 new GmailMailboxConnector(username, password);
-        mailboxConnector.getParsedMessages("INBOX").forEach(message -> System.out.println(message.getSubject()));
+        List<EmailMessage> messages = mailboxConnector.getParsedMessages("INBOX").collect(Collectors.toList());
+        assertFalse(messages.isEmpty());
         mailboxConnector.close();
     }
 

@@ -22,6 +22,6 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       env:
-        gmail.username: ${{ secrets.GMAIL_USERNAME }}
-        gmail.password: ${{ secrets.GMAIL_PASSWORD }}
+        GMAIL_USERNAME: ${{ secrets.GMAIL_USERNAME }}
+        GMAIL_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
       run: mvn -B package --file pom.xml

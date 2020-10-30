@@ -9,8 +9,8 @@ public class MailboxConnectorTest {
     @Test
     public void testGmail() throws Exception {
         Map<String,String> env = System.getenv();
-        String username = env.get("gmail.username");
-        String password = env.get("gmail.password");
+        String username = env.get("GMAIL_USERNAME");
+        String password = env.get("GMAIL_PASSWORD");
 
         MailboxConnector mailboxConnector =
                 new GmailMailboxConnector(username, password);

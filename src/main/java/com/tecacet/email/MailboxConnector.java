@@ -4,7 +4,7 @@ import javax.mail.Message;
 import java.util.stream.Stream;
 
 /**
- * MailboxConnector configured for yahoo email
+ * Utility to read messages from a mailbox
  */
 public interface MailboxConnector extends AutoCloseable {
 
@@ -12,7 +12,7 @@ public interface MailboxConnector extends AutoCloseable {
      * Get all messages in a given mailbox
      *
      * @param mailbox the name of the mailbox
-     * @return
+     * @return a stream of email messages
      */
     Stream<Message> getMessages(String mailbox);
 

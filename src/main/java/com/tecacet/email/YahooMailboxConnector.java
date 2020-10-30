@@ -15,6 +15,7 @@ public class YahooMailboxConnector extends AbstractMailboxConnector {
     protected Store connect(String username, String password, Properties properties)
             throws MessagingException {
         properties.setProperty("mail.store.protocol", "imaps");
+        properties.setProperty("mail.imap.port", "993");
         Session session = Session.getDefaultInstance(properties, null);
         Store store = session.getStore("imaps");
         store.connect("imap.mail.yahoo.com", username, password);

@@ -5,20 +5,19 @@ import org.junit.Test;
 public class MailboxConnectorTest {
 
     @Test
-    public void testGmail() {
+    public void testGmail() throws Exception {
         String username = System.getenv("gmail.username");
         String password = System.getenv("gmail.password");
 
-        try (MailboxConnector mailboxConnector =
-                     new GmailMailboxConnector(username, password)) {
-            mailboxConnector.getParsedMessages("INBOX").forEach(message -> System.out.println(message.getSubject()));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        MailboxConnector mailboxConnector =
+                new GmailMailboxConnector(username, password);
+        mailboxConnector.getParsedMessages("INBOX").forEach(message -> System.out.println(message.getSubject()));
+        mailboxConnector.close();
     }
 
-    @Test
+    //@Test
     public void testYahoo() {
+
         String username = System.getenv("yahoo.username");
         String password = System.getenv("yahoo.password");
 

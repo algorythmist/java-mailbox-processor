@@ -15,7 +15,7 @@ public class MailboxConnectorTest {
         mailboxConnector.close();
     }
 
-    //@Test
+    //TODO: @Test
     public void testYahoo() {
 
         String username = System.getenv("yahoo.username");

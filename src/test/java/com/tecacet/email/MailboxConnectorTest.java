@@ -2,12 +2,15 @@ package com.tecacet.email;
 
 import org.junit.Test;
 
+import java.util.Map;
+
 public class MailboxConnectorTest {
 
     @Test
     public void testGmail() throws Exception {
-        String username = System.getenv("gmail.username");
-        String password = System.getenv("gmail.password");
+        Map<String,String> env = System.getenv();
+        String username = env.get("gmail.username");
+        String password = env.get("gmail.password");
 
         MailboxConnector mailboxConnector =
                 new GmailMailboxConnector(username, password);
